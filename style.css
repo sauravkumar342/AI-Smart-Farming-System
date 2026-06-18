@@ -1,0 +1,461 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #2c5364);
+    color: white;
+    text-align: center;
+}
+
+/* Glass card */
+.card {
+    width: 320px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 10;
+}
+
+/* 3D Hover */
+.card:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+}
+
+/* Inputs */
+input,
+button {
+    width: 90%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Button */
+button {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+}
+
+/* Chart */
+canvas {
+    background: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+
+.chat-container {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    width: 300px;
+}
+
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bot-msg {
+    background: #00c9a7;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.user-msg {
+    background: #008f7a;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: right;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 20px;
+    font-size: 10px;
+    border-radius: 30px;
+    right: 15px;
+    width: 200px;
+    border: none;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 4px 6px;
+    /* 🔥 button chhota */
+    font-size: 12px;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    color: white;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+
+.menu-title {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+
+
+.toggle-btn {
+    width: 100%;
+    background: #00c6ff;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    /* 👈 Home से gap */
+}
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: all 0.4s ease;
+    /* 🔥 animation */
+}
+
+.main-content {
+    margin-left: 260px;
+    transition: 0.3s;
+}
+
+.sidebar.collapsed+.main-content {
+    margin-left: 100px;
+}
+
+
+
+.sidebar.collapsed~.toggle-btn {
+    left: 90px;
+    /* 👈 sidebar chhota hone pe button bhi shift */
+}
+
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed a {
+    text-align: center;
+    font-size: 0;
+}
+
+.sidebar.collapsed a::before {
+    font-size: 18px;
+}
+
+
+
+.main-content {
+    margin-left: 260px;
+    transition: 0.3s;
+}
+
+.main-content.full {
+    margin-left: 80px;
+}
+
+.toggle-btn:hover {
+    background: #0072ff;
+}
+
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* collapse mode */
+.sidebar.collapsed a {
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 0;
+}
+
+
+.sidebar a::before {
+    margin-right: 10px;
+}
+
+.sidebar.collapsed a::before {
+    font-size: 18px;
+    margin-right: 0;
+}
+
+
+
+.main-content {
+    margin-left: 260px;
+    transition: margin-left 0.4s ease;
+}
+
+.sidebar.collapsed+.main-content {
+    margin-left: 100px;
+}
+
+
+.toggle-btn {
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.section {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.faq-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+#myChart {
+    width: 100% !important;
+    height: 300px !important;
+    position: relative;
+    z-index: 10;
+}
+
+
+
+
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.resource-card:hover {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    transform: scale(1.05);
+}
+
+
+
+
+/* 📅 Floating Icon */
+#calendar-icon {
+    position: fixed;
+    right: 20px;
+    top: 120px;
+    font-size: 22px;
+    background: #00c6ff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* 📆 Popup */
+#calendar-popup {
+    position: fixed;
+    right: 20px;
+    top: 170px;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+}
+
+#calendar-popup input {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#calendar-result {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+/* 🎥 Video Gallery */
+.video-gallery {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.video-gallery h2 {
+    margin-bottom: 20px;
+}
+
+/* Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.video-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.video-card p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* View All Button */
+.view-all {
+    margin-top: 20px;
+}
+
+.view-all a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0072ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.view-all a:hover {
+    background: #0056cc;
+}
+
+
+
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.blog-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 10px;
+    transition: 0.4s;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.blog-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.blog-card button {
+    margin-top: 10px;
+}
+
+/* 🔥 Scroll Animation */
+.blog-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
